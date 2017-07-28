@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:8080',
@@ -5,17 +7,18 @@ module.exports = {
     './src/index.jsx',
   ],
   module: {
-    loaders: [{
-      test: /\.jsx?$/,
-      exclude: /node_modules/,
-      loader: 'react-hot-loader!babel-loader',
-    }],
-  },
-  resolve: {
-    extensions: ['*', '.js', '.jsx'],
+    rules: [
+      {
+        test: /\.jsx?$/,
+        use: ['react-hot-loader', 'babel-loader'],
+        include: [
+          path.resolve(__dirname, 'src'),
+        ],
+      },
+    ]
   },
   output: {
-    path: __dirname + '/dist',
+    path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
     filename: 'bundle.js',
   },
