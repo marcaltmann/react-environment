@@ -1,29 +1,26 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 const path = require('path');
 
-module.exports = {
-  entry: [
-    'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/only-dev-server',
-    './src/index.jsx',
-  ],
+const config = {
+  entry: './src/index.jsx',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js',
+  },
   module: {
     rules: [
       {
         test: /\.jsx?$/,
-        use: ['react-hot-loader', 'babel-loader'],
-        include: [
-          path.resolve(__dirname, 'src'),
-        ],
+        use: 'babel-loader',
+        include: path.resolve(__dirname, 'src'),
       },
     ]
   },
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: '/',
-    filename: 'bundle.js',
-  },
-  devServer: {
-    contentBase: './dist',
-    hot: true,
-  },
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin(),
+    new HtmlWebpackPlugin({ template: './src/index.html' }),
+  ],
 };
+
+module.exports = config;
