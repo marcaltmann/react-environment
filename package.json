@@ -7,7 +7,7 @@
   "scripts": {
     "start": "webpack-dev-server --open",
     "build": "webpack",
-    "test": "jest --coverage --silent",
+    "test": "jest --coverage",
     "test:watch": "jest --watch"
   },
   "keywords": [],
