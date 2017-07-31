@@ -14,11 +14,15 @@ const config = {
         use: 'babel-loader',
         include: path.resolve(__dirname, 'src'),
       },
-    ]
+    ],
   },
   plugins: [
-    new HtmlWebpackPlugin({ template: './src/index.html' }),
+    new HtmlWebpackPlugin({
+      title: 'New app',
+      template: path.resolve(__dirname, 'src', 'index.ejs'),
+    }),
   ],
+  devtool: 'inline-source-map',
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
   },
