@@ -1,9 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './components/App.jsx';
 
-let title = 'My minimal React Webpack Babel setup';
+let el = document.getElementById('app');
 
-ReactDOM.render(
-  <div>{title}</div>,
-  document.getElementById('app')
-);
+ReactDOM.render(<App />, el);
