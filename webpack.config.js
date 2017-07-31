@@ -1,5 +1,4 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
 const path = require('path');
 
 const config = {
@@ -18,9 +17,11 @@ const config = {
     ]
   },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin(),
     new HtmlWebpackPlugin({ template: './src/index.html' }),
   ],
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+  },
 };
 
 module.exports = config;
