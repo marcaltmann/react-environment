@@ -1,5 +1,5 @@
-const jestConfig = {
+const config = {
   collectCoverageFrom: ['src/**/*.{js,jsx}'],
 };
 
-module.exports = jestConfig;
+module.exports = config;
