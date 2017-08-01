@@ -1,6 +1,12 @@
+# Do not lock the exact package versions for this start environment
+# REMOVE IN ACTUAL PROJECT
+package-lock.json
+
+# Directories
 node_modules
 dist
 coverage
 
-# Do not lock the exact package versions for this start environment
-package-lock.json
+# Editors
+*.sublime-project
+*.sublime-workspace
