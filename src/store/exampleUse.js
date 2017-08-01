@@ -1,7 +1,8 @@
 import configureStore from './configureStore';
 import { loading, loaded } from '../actions/loading';
+import initialState from '../constants/initialState';
 
-const store = configureStore();
+const store = configureStore(initialState);
 
 console.log('========== Example store ===========');
 store.dispatch(loading());

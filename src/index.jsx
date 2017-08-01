@@ -4,7 +4,6 @@ import Dummy from './components/Dummy.jsx';
 
 import './store/exampleUse';
 
-
 let title = 'My minimal React Webpack Babel setup';
 let onButtonClick = () => {
   console.log('clicked…');
