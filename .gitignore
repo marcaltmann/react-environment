@@ -1,3 +1,6 @@
 node_modules
 dist
 coverage
+
+# Do not lock the exact package versions for this start environment
+package-lock.json
