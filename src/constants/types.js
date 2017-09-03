@@ -1,9 +1,14 @@
 export const app = {
-  LOADING: 'new-project/app/loading',
-  LOADED: 'new-project/app/loaded',
+  LOADING: 'app/loading',
+  LOADED: 'app/loaded',
 };
 
 export const auth = {
-  LOGIN: 'new-project/auth/login',
-  LOGOUT: 'new-project/auth/logout',
+  LOGIN: 'auth/login',
+  LOGOUT: 'auth/logout',
+};
+
+export const error = {
+  SET: 'error/set',
+  CLEAR: 'error/clear',
 };

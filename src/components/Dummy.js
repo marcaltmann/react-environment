@@ -1,20 +1,57 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import { setError, clearError } from '../actions/error';
 
-const Dummy = (props) => (
-  <div>
-    <p className="content">
-      {props.content}
-    </p>
-    <button className="button" onClick={props.onButtonClick}>
-      Press me
-    </button>
-  </div>
-);
+class Dummy extends Component {
+  constructor(props) {
+    super(props);
+    this.onSetErrorClick = this.onSetErrorClick.bind(this);
+    this.onClearErrorClick = this.onClearErrorClick.bind(this);
+  }
+
+  onSetErrorClick() {
+    this.props.dispatch(setError('Something went wrong'));
+  }
+
+  onClearErrorClick() {
+    this.props.dispatch(clearError());
+  }
+
+  render() {
+    const { error } = this.props;
+
+    return (
+      <div>
+        { error ?
+          <p className={classNames('Paragraph', 'has-error')}>
+            Error: {error}
+          </p> :
+          <p className={classNames('Paragraph')}>
+            No error
+          </p>
+        }
+        <button className="Button" onClick={this.onSetErrorClick}>
+          Set error
+        </button>
+        <button className="Button" onClick={this.onClearErrorClick}>
+          Clear error
+        </button>
+      </div>
+    );
+  }
+}
 
 Dummy.propTypes = {
-  content: PropTypes.string,
-  onButtonClick: PropTypes.func.isRequired,
+  error: PropTypes.bool,
+  dispatch: PropTypes.func.isRequired,
 };
 
-export default Dummy;
+function mapStateToProps(state) {
+  return {
+    error: state.error,
+  };
+}
+
+export default connect(mapStateToProps)(Dummy);
