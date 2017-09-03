@@ -26,7 +26,10 @@ const devConfig = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      __API_HOST__: JSON.stringify('http://www.example.com'),
+      '__API_HOST__': JSON.stringify('http://www.example.com'),
+      'process.env': {
+        'NODE_ENV': JSON.stringify('development'),
+      },
     }),
     new webpack.HotModuleReplacementPlugin(),
   ],

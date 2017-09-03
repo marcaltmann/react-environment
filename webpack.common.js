@@ -36,7 +36,7 @@ const config = {
       template: path.resolve(__dirname, 'src', 'index.ejs'),
     }),
     new webpack.DefinePlugin({
-      __VERSION__: JSON.stringify(appVersion),
+      '__VERSION__': JSON.stringify(appVersion),
     }),
   ],
 };

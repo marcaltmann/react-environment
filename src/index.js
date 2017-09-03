@@ -8,16 +8,14 @@ import Dummy from './components/Dummy';
 
 const store = configureStore();
 
-const title = 'My minimal React Webpack Babel setup';
-const onButtonClick = () => {
-  console.log('clicked…');
-};
-
 ReactDOM.render(
   <Provider store={store}>
-    <Dummy content={title} onButtonClick={onButtonClick} />
+    <Dummy />
   </Provider>,
   document.getElementById('app')
 );
 
-console.log(`App version: ${__VERSION__}`);
+if (process.env.NODE_ENV !== 'production') {
+  console.log('Development mode');
+  console.log(`App version: ${__VERSION__}`);
+}
