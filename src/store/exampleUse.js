@@ -1,9 +1,9 @@
 /* eslint-disable */
 import configureStore from './configureStore';
 import { loading, loaded } from '../actions/loading';
-import initialState from '../constants/initialState';
+//import initialState from '../constants/initialState';
 
-const store = configureStore(initialState);
+const store = configureStore();
 
 console.log('========== Example store ===========');
 store.dispatch(loading());

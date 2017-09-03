@@ -1,7 +1,17 @@
-/* globals process */
-import prodStore from './configureStore.prod';
-import devStore from './configureStore.dev';
+import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import thunk from 'redux-thunk';
+import rootReducer from '../reducers/root';
 
-let isProduction = process.env.NODE_ENV === 'production';
+let store;
 
-export default isProduction ? prodStore : devStore;
+export default function configureStore() {
+  if (store) {
+    return store;
+  }
+  store = createStore(
+    rootReducer,
+    composeWithDevTools(applyMiddleware(thunk))
+  );
+  return store;
+}
