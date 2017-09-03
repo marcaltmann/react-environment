@@ -3,7 +3,6 @@ import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
 import { setupIntegrationTest } from '../utils';
 import error from '../reducers/error';
-import { setError } from '../actions/error';
 import Dummy from './Dummy';
 
 describe('<Dummy/>', () => {
