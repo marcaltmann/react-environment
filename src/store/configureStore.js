@@ -1,3 +1,4 @@
+/* globals process */
 import prodStore from './configureStore.prod';
 import devStore from './configureStore.dev';
 

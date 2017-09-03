@@ -9,4 +9,5 @@ export function loading(state = initialState.loading, action) {
     return false;
   default:
     return state;
-}}
+  }
+}
