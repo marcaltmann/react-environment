@@ -1,6 +1,7 @@
 const config = {
   globals: {
-    __VERSION__: false,
+    '__VERSION__': false,
+    'process': false,
   },
   env: {
     browser: true,
