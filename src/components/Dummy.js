@@ -44,7 +44,7 @@ class Dummy extends Component {
 }
 
 Dummy.propTypes = {
-  error: PropTypes.bool,
+  error: PropTypes.string,
   dispatch: PropTypes.func.isRequired,
 };
 

@@ -1,43 +1,30 @@
 import React from 'react';
-import sinon from 'sinon';
-import { shallow } from 'enzyme';
-
-import Dummy from './Dummy.jsx';
+import { Provider } from 'react-redux';
+import { mount } from 'enzyme';
+import { setupIntegrationTest } from '../utils';
+import error from '../reducers/error';
+import Dummy from './Dummy';
 
 describe('<Dummy/>', () => {
-  let sandbox;
+  let store, dispatchSpy;
+
   beforeEach(() => {
-    sandbox = sinon.sandbox.create();
-  });
-  afterEach(() => {
-    sandbox.restore();
+    ({ store, dispatchSpy } = setupIntegrationTest({ error }));
   });
 
-  describe('render methods', () => {
+  describe('component behaviour', () => {
     it('should render correctly', () => {
-      let onButtonClickStub = sandbox.stub();
-      const content = 'I am learning to test React components';
-      let wrapper = shallow(
-        <Dummy content={content}
-          onButtonClick={onButtonClickStub}
-        />
+      const sut = mount(
+        <Provider store={store}>
+          <Dummy />
+        </Provider>
       );
-      expect(wrapper.find('.content').length).toBe(1);
-      expect(wrapper.find('.content').text()).toBe(content);
-    });
-  });
 
-  describe('button', () => {
-    it('should work correctly', () => {
-      let onButtonClickStub = sandbox.stub();
-      let wrapper = shallow(
-        <Dummy content="something"
-          onButtonClick={onButtonClickStub}
-        />
-      );
-      wrapper.find('button').simulate('click');
-
-      expect(onButtonClickStub.calledOnce).toBe(true);
+      expect(sut.find('p').text()).toEqual('No error');
+      sut.find('button').at(0).simulate('click');
+      expect(sut.find('p').text()).toEqual('Error: Something went wrong');
+      sut.find('button').at(1).simulate('click');
+      expect(sut.find('p').text()).toEqual('No error');
     });
   });
 });

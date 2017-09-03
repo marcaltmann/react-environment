@@ -8,7 +8,8 @@
     "build": "webpack --config webpack.prod.js",
     "lint": "eslint src/",
     "start": "webpack-dev-server --open --config webpack.dev.js",
-    "test": "jest --coverage",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
     "test:watch": "jest --watch"
   },
   "keywords": [],
