@@ -7,17 +7,17 @@ import message from '../reducers/error';
 import Message from './Message';
 
 describe('<Message/>', () => {
-  let store, dispatchSpy;
+  let store, dispatchSpy, flushThunks;
 
   beforeEach(() => {
-    ({ store, dispatchSpy } = setupIntegrationTest({ message }));
+    ({ store, dispatchSpy, flushThunks } = setupIntegrationTest({ message }));
   });
   afterEach(() => {
     nock.cleanAll();
   });
 
   describe('component behaviour', () => {
-    it('should render correctly', async () => {
+    it('should render correctly', () => {
       nock('http://localhost:3001')
         .get('/message')
         .reply(200, { message: 'Hello World!' });
@@ -30,20 +30,22 @@ describe('<Message/>', () => {
 
       expect(sut.find('p').text()).toEqual('');
 
-      await flushAllPromises();
+      flushAllPromises().then(() => {
+      //flushThunks.flush().then(() => {
+        expect(sut.find('p').text()).toEqual('Hello World!');
 
-      //expect(sut.find('p').text()).toEqual('Hello World!');
+        // Check if the correct action has been dispatched
+        expect(dispatchSpy).toBeCalledWith({
+          type: 'message/fetch/success',
+          payload: {
+            message: 'Hello World!',
+          },
+        });
 
-      // Check if the correct action has been dispatched
-      expect(dispatchSpy).toBeCalledWith({
-        type: 'message/fetch/success',
-        payload: {
-          message: 'Hello World!',
-        },
+        // Check if the state has changed
+        expect(store.getState().message).toEqual('Hello World!');
       });
 
-      // Check if the state has changed
-      expect(store.getState().message).toEqual('Hello World!');
     });
   });
 });

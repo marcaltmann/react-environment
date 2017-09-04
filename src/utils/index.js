@@ -1,5 +1,6 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import thunk from 'redux-thunk';
+import { FlushThunks } from 'redux-testkit';
 import { ReactWrapper } from 'enzyme';
 
 /* Sets up basic variables to be used by integration tests
@@ -15,7 +16,7 @@ export function setupIntegrationTest(reducers) {
   const dispatchSpy = jest.fn(() => ({}));
   const reducerSpy = (state, action) => dispatchSpy(action);
   // applying thunk middleware to the the store
-  const emptyStore = applyMiddleware(thunk)(createStore);
+  const flushThunks = FlushThunks.createMiddleware();
   const combinedReducers = combineReducers(
     Object.assign(
       {},
@@ -24,9 +25,9 @@ export function setupIntegrationTest(reducers) {
     )
   );
   // creating the store
-  const store = emptyStore(combinedReducers);
+  const store = createStore(combinedReducers, applyMiddleware(flushThunks, thunk));
 
-  return { store, dispatchSpy };
+  return { store, dispatchSpy, flushThunks };
 }
 
 /* Async function that will finish execution after all promises have been finished
