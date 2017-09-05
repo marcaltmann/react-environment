@@ -1,11 +1,5 @@
-import fetch from 'isomorphic-fetch';
+import axios from 'axios';
 
 export function fetchMessage() {
-  const headers = new Headers();
-  headers.append('Content-Type', 'application/json');
-
-  return fetch('http://localhost:3001/message', {
-    method: 'GET',
-    headers,
-  });
+  return axios.get('http://localhost:3001/message');
 }

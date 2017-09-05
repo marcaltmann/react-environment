@@ -7,15 +7,15 @@ export function fetchMessage() {
       type: types.message.FETCH_REQUEST,
     });
     return api.fetchMessage()
-      .then(res => res.json())
-      .then(json => dispatch({
+      .then(response => dispatch({
         type: types.message.FETCH_SUCCESS,
         payload: {
-          message: json.message,
+          message: response.message,
         },
       }))
       .catch(ex => dispatch({
         type: types.message.FETCH_FAILURE,
+        payload: ex,
       }));
   };
 }
