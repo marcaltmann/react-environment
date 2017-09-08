@@ -13,12 +13,11 @@ const devConfig = {
   module: {
     rules: [
       {
-        test: /\.s?css$/,
+        test: /\.css$/,
         use: [
           'style-loader',
           'css-loader',
-          'postcss-loader',
-          'sass-loader',
+          //'postcss-loader',
         ],
         include: path.resolve(__dirname, 'src', 'styles'),
       },

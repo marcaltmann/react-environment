@@ -1,9 +1,11 @@
 import React from 'react';
+import Select from './Select';
 
 const About = () => (
   <div>
-    Well, were should I begin…?
+    <Select />
   </div>
+
 );
 
 export default About;

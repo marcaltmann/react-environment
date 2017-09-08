@@ -4,13 +4,23 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
 import './store/exampleUse';
-import Message from './components/Message';
+import Select from './components/Select';
+
+import dotProp from 'dot-prop-immutable';
+
+let obj = {foo: { bar: true } };
+
+// toggle
+let obj2 = dotProp.toggle(obj, 'foo.bar');
+
+console.log(obj, obj2);
+
 
 const store = configureStore();
 
 ReactDOM.render(
   <Provider store={store}>
-    <Message />
+    <Select />
   </Provider>,
   document.getElementById('app')
 );

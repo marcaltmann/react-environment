@@ -2,6 +2,8 @@ const config = {
   globals: {
     '__VERSION__': false,
     'process': false,
+    'module': false,
+    '__dirname': true,
   },
   env: {
     browser: true,
