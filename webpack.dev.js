@@ -31,6 +31,7 @@ const devConfig = {
       },
     }),
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin(),
   ],
 };
 
