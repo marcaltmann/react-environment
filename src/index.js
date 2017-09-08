@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
 import './store/exampleUse';
-import Select from './components/Select';
+import Dummy from './components/Dummy';
 
 import dotProp from 'dot-prop-immutable';
 
@@ -20,7 +20,7 @@ const store = configureStore();
 
 ReactDOM.render(
   <Provider store={store}>
-    <Select />
+    <Dummy />
   </Provider>,
   document.getElementById('app')
 );

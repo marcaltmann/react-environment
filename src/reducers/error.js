@@ -1,13 +1,18 @@
 import initialState from '../constants/initialState';
 import * as types from '../constants/types';
+import { createReducer } from './reducerUtilities';
 
-export default function error(state = initialState.error, action) {
-  switch (action.type) {
-  case types.error.SET:
-    return action.payload.message;
-  case types.error.CLEAR:
-    return null;
-  default:
-    return state;
-  }
+function setError(errorState, action) {
+  return action.payload.message;
 }
+
+function clearError() {
+  return null;
+}
+
+const errorReducer = createReducer(initialState.error, {
+  [types.error.SET]: setError,
+  [types.error.CLEAR]: clearError,
+});
+
+export default errorReducer;
