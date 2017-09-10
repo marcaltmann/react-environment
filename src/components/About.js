@@ -1,11 +1,37 @@
 import React from 'react';
-import Select from './Select';
+import { Route, Link } from 'react-router-dom';
 
-const About = () => (
+const Marc = () => (
   <div>
-    <Select />
+    Marc
   </div>
-
 );
+
+const Peter = () => (
+  <div>
+    Peter
+  </div>
+);
+
+const About = (props) => {
+  const { match, location, history } = props;
+
+  console.log(match);
+  console.log(location);
+  console.log(history);
+
+  //history.goBack();
+
+  return (
+    <div>
+      This is an example app. <Link to="marc">Marc</Link>, <Link to="peter">Peter</Link>
+
+      <hr/ >
+
+      <Route path="marc" component={Marc} />
+      <Route path="peter" component={Peter} />
+    </div>
+  );
+};
 
 export default About;

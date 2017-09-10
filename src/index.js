@@ -1,10 +1,11 @@
 /* eslint-disable no-console */
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
 import './store/exampleUse';
-import Dummy from './components/Dummy';
+import App from './components/App';
 
 import dotProp from 'dot-prop-immutable';
 
@@ -20,7 +21,9 @@ const store = configureStore();
 
 ReactDOM.render(
   <Provider store={store}>
-    <Dummy />
+    <Router>
+      <App />
+    </Router>
   </Provider>,
   document.getElementById('app')
 );

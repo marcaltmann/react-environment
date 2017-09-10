@@ -10,6 +10,9 @@ const devConfig = {
     hot: true,
     historyApiFallback: true,
   },
+  output: {
+    publicPath: '/',
+  },
   module: {
     rules: [
       {
