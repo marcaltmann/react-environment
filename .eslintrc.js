@@ -18,6 +18,7 @@ const config = {
     sourceType: 'module',
     ecmaFeatures: {
       jsx: true,
+      experimentalObjectRestSpread: true,
     },
     ecmaVersion: 2017,
   },

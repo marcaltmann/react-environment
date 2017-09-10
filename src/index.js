@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
 import './store/exampleUse';
 import App from './components/App';
+import AuthExample from './components/AuthExample';
 
 import dotProp from 'dot-prop-immutable';
 
@@ -21,9 +22,7 @@ const store = configureStore();
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router>
-      <App />
-    </Router>
+    <AuthExample />
   </Provider>,
   document.getElementById('app')
 );
