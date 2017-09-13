@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const MinifyPlugin = require('babel-minify-webpack-plugin');
 const common = require('./webpack.common.js');
 
 const prodConfig = {
@@ -34,10 +34,7 @@ const prodConfig = {
       },
     }),
     new ExtractTextPlugin('styles.css'),
-    new UglifyJSPlugin({
-      include: path.resolve(__dirname, 'src'),
-      sourceMap: true,
-    }),
+    new MinifyPlugin(),
   ],
 };
 
