@@ -22,7 +22,9 @@ const store = configureStore();
 
 ReactDOM.render(
   <Provider store={store}>
-    <AuthExample />
+    <Router>
+      <App />
+    </Router>
   </Provider>,
   document.getElementById('app')
 );

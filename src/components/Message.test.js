@@ -6,9 +6,6 @@ import { setupIntegrationTest, flushAllPromises } from '../utils';
 import message from '../reducers/message';
 import Message from './Message';
 
-jest.mock('axios');
-import axios from 'axios';
-
 describe('<Message/>', () => {
   let store, dispatchSpy, flushThunks;
 
@@ -21,10 +18,6 @@ describe('<Message/>', () => {
 
   describe('component behaviour', () => {
     it('should render correctly', async () => {
-      axios.get.mockImplementation(() => Promise.resolve({
-        message: 'Hello World!',
-      }));
-
       const sut = mount(
         <Provider store={store}>
           <Message />
