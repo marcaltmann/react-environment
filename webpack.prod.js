@@ -35,6 +35,10 @@ const prodConfig = {
     }),
     new ExtractTextPlugin('styles.css'),
     new MinifyPlugin(),
+    new webpack.NormalModuleReplacementPlugin(
+      /api\/index\.js/,
+      'realApi.js'
+    ),
   ],
 };
 
