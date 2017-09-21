@@ -16,9 +16,22 @@ const Peter = () => (
 const About = (props) => {
   const { match, location, history } = props;
 
-  console.log(match);
-  console.log(location);
-  console.log(history);
+  const o = {
+    monday: 'nice',
+    tuesday: 'also nice',
+    wednesday: 'no',
+  };
+
+  const new_o = {
+    ...o,
+    wednesday: 'great',
+  };
+
+  console.log(o, new_o);
+
+  // console.log(match);
+  // console.log(location);
+  // console.log(history);
 
   //history.goBack();
 
