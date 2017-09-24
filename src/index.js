@@ -1,32 +1,14 @@
 /* eslint-disable no-console */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
-import './store/exampleUse';
-import App from './components/App';
-import AuthExample from './components/AuthExample';
-
-import dotProp from 'dot-prop-immutable';
-
-let obj = {foo: { bar: true } };
-
-// toggle
-let obj2 = dotProp.toggle(obj, 'foo.bar');
-
-console.log(obj, obj2);
-
+import Root from './components/App';
 
 const store = configureStore();
 
 ReactDOM.render(
-  <Provider store={store}>
-    <Router>
-      <App />
-    </Router>
-  </Provider>,
-  document.getElementById('app')
+  <Root store={store} />,
+  document.getElementById('root')
 );
 
 if (process.env.NODE_ENV !== 'production') {
