@@ -1,16 +1,16 @@
+/* background: url(fff-0-2.png) repeat; */
 select {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
   border: none;
-  width: 100%;
+  width: 100%; /*background: url(fff-0-2.png) repeat;*/
   height: 40px;
   padding-left: 10px;
-  /*background: url(fff-0-2.png) repeat;*/
   color: #fff;
   font-family: 'Open Sans', sans-serif;
   font-size: 1em;
-  box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.3);
+  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.3);
   border-radius: 3px;
   outline: none;
   cursor: pointer;
@@ -28,7 +28,7 @@ select:focus::-ms-value {
   background-color: transparent;
 }
 
-.select-wrapper:before {
+.select-wrapper::before {
   font-family: fontello;
   content: "\f107";
   font-size: 20px;
@@ -39,24 +39,24 @@ select:focus::-ms-value {
   pointer-events: none;
 }
 
+/* background: #fafafa url("img/icon-select.png") no-repeat 90% 50%; */
 .select-style {
-    border: 1px solid #ccc;
-    width: 120px;
-    border-radius: 3px;
-    overflow: hidden;
-    /*background: #fafafa url("img/icon-select.png") no-repeat 90% 50%;*/
+  border: 1px solid #ccc;
+  width: 120px;
+  border-radius: 3px;
+  overflow: hidden;
 }
 
 .select-style select {
-    padding: 5px 8px;
-    width: 130%;
-    border: none;
-    box-shadow: none;
-    background: transparent;
-    background-image: none;
-    -webkit-appearance: none;
+  padding: 5px 8px;
+  width: 130%;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  background-image: none;
+  -webkit-appearance: none;
 }
 
 .select-style select:focus {
-    outline: none;
+  outline: none;
 }
