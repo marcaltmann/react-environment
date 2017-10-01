@@ -64,4 +64,23 @@ describe('Promises', () => {
       await expect(promise).rejects.toEqual(new Error('Promise rejected'));
     });
   });
+
+  describe('custom examples', () => {
+    test('fulfilling with then', async () => {
+      const promise = createPromise(true).then(res => res.toLowerCase());
+      await expect(promise).resolves.toEqual('promise fulfilled');
+    });
+
+    test('rejecting with then', async () => {
+      const promise = createPromise(false).then(res => res.toLowerCase());
+      await expect(promise).rejects.toEqual(new Error('Promise rejected'));
+    });
+
+    test('rejecting with then different syntax', () => {
+      const promise = createPromise(false).then(res => res.toLowerCase());
+      return promise.then(undefined, err => {
+        expect(err).toEqual(new Error('Promise rejected'));
+      });
+    });
+  });
 });
