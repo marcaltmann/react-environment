@@ -22,6 +22,10 @@ const delay = (ms) =>
 
 export const fetchMessage = () =>
   delay(500).then(() => {
+    if (Math.random() > 0.5) {
+      throw new Error('Boom!');
+    }
+
     return {
       message: fakeDatabase.message,
     };

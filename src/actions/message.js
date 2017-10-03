@@ -6,15 +6,20 @@ export const fetchMessage = () => (dispatch) => {
     type: types.message.FETCH_REQUEST,
   });
 
-  return api.fetchMessage()
-    .then((response) => dispatch({
-      type: types.message.FETCH_SUCCESS,
-      payload: {
-        message: response.message,
-      },
-    }),
-    (err) => dispatch({
-      type: types.message.FETCH_FAILURE,
-      payload: err,
-    }));
+  return api.fetchMessage().then(
+    response => {
+      dispatch({
+        type: types.message.FETCH_SUCCESS,
+        payload: {
+          message: response.message,
+        },
+      });
+    },
+    err => {
+      dispatch({
+        type: types.message.FETCH_FAILURE,
+        payload: err.message || 'Something went wrong.',
+      });
+    }
+  );
 };
