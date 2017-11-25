@@ -1,5 +1,6 @@
 import React from 'react';
 import { Switch, Route, Link } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl';
 
 import Home from './Home';
 import About from './About';
@@ -8,8 +9,16 @@ const App = () => (
   <div>
     <nav>
       <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/about">About</Link></li>
+        <li>
+          <Link to="/">
+            <FormattedMessage id="app.home" defaultMessage="Home" description="Home link in menu" />
+          </Link>
+        </li>
+        <li>
+          <Link to="/about">
+            <FormattedMessage id="app.about" defaultMessage="About" description="About link in menu" />
+          </Link>
+        </li>
       </ul>
     </nav>
 
