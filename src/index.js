@@ -6,10 +6,8 @@ import Root from './components/Root';
 
 const store = configureStore();
 
-const locale = 'en';
-
 ReactDOM.render(
-  <Root store={store} locale={locale} />,
+  <Root store={store} />,
   document.getElementById('root')
 );
 
