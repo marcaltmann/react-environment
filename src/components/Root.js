@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import { IntlProvider, addLocaleData } from 'react-intl';
 import { BrowserRouter as Router } from 'react-router-dom';
+import browserLocale from 'browser-locale';
 import App from './App';
 
 import en from 'react-intl/locale-data/en';
@@ -19,7 +20,17 @@ const localeData = {
   zh: localeDataZh,
 };
 
-const locale = 'de';
+/**
+ * ['en', 'en-GB', 'en-US'] -> und mehr
+ * ['zh', 'zh-cn']
+ *
+ * const regexp = /^de/i;
+ * oder einfach locale.slice(0, 2);
+ * locale.slice(0, 2).toLowerCase()
+ */
+
+const locale = browserLocale();
+console.log(locale);
 
 document.documentElement.lang = locale;
 
