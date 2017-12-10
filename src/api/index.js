@@ -1,5 +1,8 @@
 import { v4 } from 'uuid';
 
+const ERROR_RATE = 0.01;
+const ROUND_TRIP_TIME = 500;
+
 // Fake API
 // Could be used for testing, also. The delay could be set to zero then
 
@@ -17,12 +20,12 @@ const fakeDatabase = {
   message: 'Hello World!',
 };
 
-const delay = (ms) =>
-  new Promise(resolve => setTimeout(resolve, ms));
+const delay = (time = ROUND_TRIP_TIME) =>
+  new Promise(resolve => setTimeout(resolve, time));
 
 export const fetchMessage = () =>
-  delay(500).then(() => {
-    if (Math.random() > 0.5) {
+  delay().then(() => {
+    if (Math.random() >= (1 - ERROR_RATE)) {
       throw new Error('Boom!');
     }
 
