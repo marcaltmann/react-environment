@@ -7,13 +7,18 @@ const outputPath = path.resolve(__dirname, 'dist');
 const appVersion = require(path.resolve(__dirname, 'package.json')).version;
 
 const config = {
-  entry: './src/index.js',
+  entry: './src/index.tsx',
   output: {
     path: outputPath,
     filename: 'bundle.js',
   },
   module: {
     rules: [
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        include: path.resolve(__dirname, 'src'),
+      },
       {
         test: /\.jsx?$/,
         use: 'babel-loader',
@@ -39,6 +44,13 @@ const config = {
       '__VERSION__': JSON.stringify(appVersion),
     }),
   ],
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.json'],
+    modules: [
+      path.resolve(__dirname, 'src'),
+      'node_modules',
+    ],
+  },
 };
 
 module.exports = config;

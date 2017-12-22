@@ -4,7 +4,7 @@ const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 
 const devConfig = {
-  devtool: 'inline-source-map',
+  devtool: 'cheap-module-eval-source-map',
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     hot: true,

@@ -1,7 +1,7 @@
-import * as types from '../constants/types.js';
-import * as api from '../api';
+import * as types from 'constants/types.js';
+import * as api from 'api';
 
-export const fetchMessage = () => (dispatch) => {
+const fetchMessage = () => (dispatch) => {
   dispatch({
     type: types.message.FETCH_REQUEST,
   });
@@ -23,3 +23,5 @@ export const fetchMessage = () => (dispatch) => {
     }
   );
 };
+
+export { fetchMessage };

@@ -2,8 +2,8 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
 import nock from 'nock';
-import { setupIntegrationTest, flushAllPromises } from '../utils';
-import message from '../reducers/message';
+import { setupIntegrationTest, flushAllPromises } from 'utils';
+import message from 'reducers/message';
 import Message from './Message';
 
 describe('<Message/>', () => {

@@ -1,5 +1,5 @@
-import initialState from '../constants/initialState';
-import * as types from '../constants/types';
+import initialState from 'constants/initialState';
+import * as types from 'constants/types';
 
 export function loading(state = initialState.loading, action) {
   switch (action.type) {

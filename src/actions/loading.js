@@ -1,13 +1,11 @@
-import * as types from '../constants/types.js';
+import * as types from 'constants/types.js';
 
-export function loading() {
-  return {
-    type: types.app.LOADING,
-  };
-}
+const loading = () => ({
+  type: types.app.LOADING,
+});
 
-export function loaded() {
-  return {
-    type: types.app.LOADED,
-  };
-}
+const loaded = () => ({
+  type: types.app.LOADED,
+});
+
+export { loading, loaded };

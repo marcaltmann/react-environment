@@ -1,5 +1,5 @@
-import initialState from '../constants/initialState';
-import * as types from '../constants/types';
+import initialState from 'constants/initialState';
+import * as types from 'constants/types';
 import { createReducer } from './reducerUtilities';
 
 function setError(errorState, action) {

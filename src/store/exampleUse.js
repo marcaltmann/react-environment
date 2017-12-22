@@ -1,7 +1,7 @@
 /* eslint-disable */
 import configureStore from './configureStore';
-import { loading, loaded } from '../actions/loading';
-//import initialState from '../constants/initialState';
+import { loading, loaded } from 'actions/loading';
+//import initialState from 'constants/initialState';
 
 const store = configureStore();
 

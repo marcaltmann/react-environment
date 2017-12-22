@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "*": [
+         "*",
+         "src/*"
+      ]
+    },
+    "sourceMap": true,
+    "module": "commonjs",
+    "target": "es5",
+    "jsx": "react"
+  },
+  "include": [
+    "src"
+  ],
+  "compileOnSave": false
+}

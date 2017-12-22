@@ -1,5 +1,5 @@
-import initialState from '../constants/initialState';
-import * as types from '../constants/types';
+import initialState from 'constants/initialState';
+import * as types from 'constants/types';
 
 export default function message(state = initialState.message, action) {
   switch (action.type) {
