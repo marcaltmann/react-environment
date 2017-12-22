@@ -1,6 +1,6 @@
 {
   "name": "react-environment",
-  "version": "0.0.7",
+  "version": "0.1.0",
   "description": "React environment to start my own projects",
   "repository": "marcaltmann/react-environment",
   "main": "index.js",
