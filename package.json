@@ -6,9 +6,9 @@
   "main": "index.js",
   "scripts": {
     "build:langs": "babel scripts/translate.js | node",
-    "build": "webpack --config webpack.prod.js",
+    "build": "webpack --config ./webpack.prod.js",
     "lint": "eslint src/",
-    "start": "webpack-dev-server --config webpack.dev.js",
+    "start": "webpack-dev-server --config ./webpack.dev.js --content-base ./public",
     "stylelint": "stylelint 'src/**/*.css'",
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch",
