@@ -1,5 +1,12 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "*": [
+         "*",
+         "src/*"
+      ]
+    },
     "sourceMap": true,
     "module": "commonjs",
     "target": "es5",
