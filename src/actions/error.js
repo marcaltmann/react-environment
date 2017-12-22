@@ -1,16 +1,14 @@
-import * as types from '../constants/types.js';
+import * as types from 'constants/types.js';
 
-export function setError(message) {
-  return {
-    type: types.error.SET,
-    payload: {
-      message,
-    },
-  };
-}
+const setError = (message) => ({
+  type: types.error.SET,
+  payload: {
+    message,
+  },
+});
 
-export function clearError() {
-  return {
-    type: types.error.CLEAR,
-  };
-}
+const clearError = () => ({
+  type: types.error.CLEAR,
+});
+
+export { setError, clearError };

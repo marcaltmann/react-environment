@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { fetchMessage } from '../actions/message';
-import { getMessage } from '../selectors/message';
+import { fetchMessage } from 'actions/message';
+import { getMessage } from 'selectors/message';
 
 class Message extends Component {
   constructor(props) {

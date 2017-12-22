@@ -10,9 +10,9 @@ import en from 'react-intl/locale-data/en';
 import de from 'react-intl/locale-data/de';
 import zh from 'react-intl/locale-data/zh';
 
-import localeDataEn from '../locales/en';
-import localeDataDe from '../locales/de';
-import localeDataZh from '../locales/zh';
+import localeDataEn from 'locales/en';
+import localeDataDe from 'locales/de';
+import localeDataZh from 'locales/zh';
 
 const localeData = {
   en: localeDataEn,
