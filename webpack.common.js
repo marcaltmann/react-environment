@@ -7,7 +7,7 @@ const outputPath = path.resolve(__dirname, 'dist');
 const appVersion = require(path.resolve(__dirname, 'package.json')).version;
 
 const config = {
-  entry: './src/index.js',
+  entry: './src/index.tsx',
   output: {
     path: outputPath,
     filename: 'bundle.js',

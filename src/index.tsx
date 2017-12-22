@@ -1,6 +1,7 @@
-/* eslint-disable no-console */
-import React from 'react';
-import ReactDOM from 'react-dom';
+declare var __VERSION__: string;
+
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import configureStore from './store/configureStore';
 import Root from './components/Root';
 
