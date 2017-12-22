@@ -15,6 +15,11 @@ const config = {
   module: {
     rules: [
       {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        include: path.resolve(__dirname, 'src'),
+      },
+      {
         test: /\.jsx?$/,
         use: 'babel-loader',
         include: path.resolve(__dirname, 'src'),
@@ -40,6 +45,7 @@ const config = {
     }),
   ],
   resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.json'],
     modules: [
       path.resolve(__dirname, 'src'),
       'node_modules',
