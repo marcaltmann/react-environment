@@ -14,13 +14,9 @@ const config = {
     'eslint:recommended',
     'plugin:react/recommended',
   ],
+  parser: 'babel-eslint',
   parserOptions: {
     sourceType: 'module',
-    ecmaFeatures: {
-      jsx: true,
-      experimentalObjectRestSpread: true,
-    },
-    ecmaVersion: 2017,
   },
   rules: {
     indent: [
